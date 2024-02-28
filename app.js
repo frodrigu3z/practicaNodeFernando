@@ -48,7 +48,7 @@ const ruta = require('path');
 
 const almacenamiento = multer.diskStorage({
     destination: function (req, file, cb) {
-        cb(null, './static/img/')
+        cb(null, '/tmp/')
     },
     filename: function (req, file, cb) {
         cb(null, file.originalname)
