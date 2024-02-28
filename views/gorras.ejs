@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listado de Gorras</title>
+</head>
+
+<body>
+    <h1>Listado de Gorras</h1>
+    <ul>
+        <% gorras.forEach(gorra=> { %>
+            <li>
+                <%= gorra.descripcion %>
+                    <br>
+                    <b>
+                        <%= gorra.precio %>
+                    </b>
+            </li>
+            <br>
+            <% }); %>
+    </ul>
+</body>
+
+</html>
