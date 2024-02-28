@@ -93,27 +93,6 @@ app.post('/gorras', subidaImagen.single('imagen'), (req, res) => {
     });
 });
 
-app.get('/gorras/:id', (req, res) => {
-    const gorraId = req.params.id;
-
-    const consulta = 'SELECT * FROM gorras WHERE id = ?';
-
-    db.query(consulta, [gorraId], (err, results) => {
-        if (err) {
-            console.error('Error al obtener la gorra: ' + err.message);
-            res.status(500).json({ error: 'Error al obtener la gorra' });
-            return;
-        }
-
-        if (results.length === 0) {
-            res.status(404).json({ error: 'Gorra no encontrada' });
-            return;
-        }
-
-        res.json(results[0]);
-    });
-});
-
 app.put('/gorras/:id', subidaImagen.single('imagen'), (req, res) => {
     // Actualizar una gorra por su ID
     const gorraId = req.params.id;
@@ -251,6 +230,27 @@ app.get('/gorras/html', (req, res) => {
         }
 
         res.render('gorras', { gorras: results });
+    });
+});
+
+app.get('/gorras/:id', (req, res) => {
+    const gorraId = req.params.id;
+
+    const consulta = 'SELECT * FROM gorras WHERE id = ?';
+
+    db.query(consulta, [gorraId], (err, results) => {
+        if (err) {
+            console.error('Error al obtener la gorra: ' + err.message);
+            res.status(500).json({ error: 'Error al obtener la gorra' });
+            return;
+        }
+
+        if (results.length === 0) {
+            res.status(404).json({ error: 'Gorra no encontrada' });
+            return;
+        }
+
+        res.json(results[0]);
     });
 });
 
