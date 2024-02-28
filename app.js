@@ -114,7 +114,6 @@ app.get('/gorras/:id', (req, res) => {
     });
 });
 
-
 app.put('/gorras/:id', subidaImagen.single('imagen'), (req, res) => {
     // Actualizar una gorra por su ID
     const gorraId = req.params.id;
